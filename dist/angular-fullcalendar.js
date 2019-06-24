@@ -28,9 +28,8 @@ function fcDirectiveFn(CALENDAR_DEFAULTS) {
             scope.$on('$destroy', function () { destroy();});
             function init() {
                 if (!calendar) {
-                    calendar = $(elm).html('');
+                    calendar = new FullCalendar.Calendar(elm, getOptions(scope.options));
                 }
-                calendar.fullCalendar(getOptions(scope.options));
             }
             function destroy() {
               if(calendar && calendar.fullCalendar){
